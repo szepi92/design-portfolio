@@ -1,0 +1,313 @@
+body {
+	background-image: url("../assets/background2.png");
+	font-family: "Lato";
+	font-weight: 100;
+	color: #333333;
+	margin: 0px;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Lato Light"), local("Lato-Light"), url("http://fonts.gstatic.com/s/lato/v11/KT3KS9Aol4WfR6Vas8kNcg.woff") format("woff");
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	font-weight: 100;
+}
+
+a:hover, a:active {
+	color: #e1005f;
+	/*color: #bd0143; pink */
+}
+
+h3 {
+	font-weight: 200;
+}
+
+#banner {
+	position: fixed;
+	height: 50px;
+	width: 100%;
+	display: block;
+	border: none;
+	margin-top: 0px;
+	padding-top: 0px;
+	vertical-align: top;
+	background-color: #2f3c50;
+	z-index: 1;
+	box-shadow: 0px 1px 0px #1a2536;
+}
+
+.container {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#page-title {
+	margin-top: 7px;
+	margin-left: 5px;
+	position: fixed;
+	z-index: 2;
+}
+
+#page-title img {
+	height: 38px;
+}
+
+ hr {
+	margin: 0px;
+	border-color: #f2f2f2;
+	width: 100%;
+	opacity: 0.2;
+}
+
+.project-details {
+	width: 885px;
+	height: 100%;
+	display: inline-block;
+	clear: none;
+	vertical-align: top;
+	margin-right: 20px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 1px 2px 2px #e9eaed;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 65px;
+}
+
+.project {
+	width: 100%;
+}
+
+.project-details h2 {
+	font-weight: 100;
+	font-size: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	display: inline-block
+}
+
+.project-details h4 {
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 100;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.project-menu {
+	position: fixed;
+	width: 210px;
+	height: 500px;
+	display: inline-block;
+	clear: none;
+	margin-top: 65px;
+	vertical-align: top;
+	background-color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+	box-shadow: 1px 2px 2px #e9eaed;
+}
+
+.thumbnails {
+	width: 500px;
+	height: 500px;
+	vertical-align: top;
+	display: inline-block;
+	margin-right: 27px;
+	margin-bottom: 10px;
+}
+
+.thumb-box {
+	width: 246px;
+	height: 248px;
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid #f4f4f4;
+}
+
+.thumb-box img {
+	left: -40%;
+	height: 100%;
+}
+
+.thumb-box6 {
+	width: 246px;
+	height: 248px;
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid #f4f4f4;
+}
+
+.thumb-box6 img {
+	width: 100%;
+}
+
+.thumb-box7 {
+	width: 246px;
+	height: 248px;
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid #f4f4f4;
+}
+
+.thumb-box7 img {
+	height: 100%;
+	left: -15%;
+}
+
+.thumb-box1 {
+	width: 500px;
+	height: 248px;
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid #f4f4f4;
+}
+
+.thumb-box1 img {
+	width: 100%;
+}
+
+.thumb-box4 {
+	width: 500px;
+	height: 248px;
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid #f4f4f4;
+}
+
+.thumb-box4 img {
+	height: 100%;
+}
+
+.thumb-box2 {
+	width: 246px;
+	height: 248px;
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid #f4f4f4;
+}
+
+.thumb-box2 img {
+	width: 100%;
+}
+
+.thumb-box5 {
+	width: 246px;
+	height: 248px;
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid #f4f4f4;
+}
+
+.thumb-box5 img {
+	height: 100%;
+	left: -17%;
+}
+
+.thumb-box3 {
+	width: 246px;
+	height: 248px;
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid #f4f4f4;
+}
+
+.thumb-box3 img {
+	height: 100%;
+	position: relative;
+	left: -28%;
+}
+
+.thumbnails img {
+	position: relative;
+}
+
+.project-dscrp {
+	width: 350px;
+	display: inline-block;
+}
+
+#icons {
+	display: inline-block;
+	width: 90px;
+	position: fixed;
+	z-index: 2;
+	margin-top: 580px;
+	opacity: 0.2;
+	height: 60px;
+	margin-left: 150px;
+}
+
+#icons a:hover {
+	opacity: 0.6;
+}
+
+#icon-g {
+	height: 30px;
+	vertical-align: top;
+	margin-top: 2px;
+	margin-right: 4px;
+}
+
+#icon-l {
+	height: 35px;
+	vertical-align: top;
+}
+
+/* styling for lightbox */
+
+.lightbox-overlay {
+	z-index: 1000;
+	top: 0px;
+	left: 0px;
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	opacity: 0.9;
+	
+	display: none;
+}
+
+.lightbox {
+	position: fixed;   /* Take it out of the flow of the document */
+    left: 0;           /* Left edge at left for now */
+    right: 0;          /* Right edge at right for now, so full width */ 
+    top: 0;         /* Move it down from top of window */
+	bottom: 0;
+	background-color: #111111;
+    
+	width: 1000px;      /* Give it the desired width */ 
+	height: 600px;
+    
+	margin: auto;      /* Center it */
+	
+    z-index: 1000000;    /* Whatever needed to force to front (1 might do) */
+	
+	display: none;
+}
+
+.lightbox img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.lightbox-caption {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	background-color: #111111;
+	color: white;
+}
+
