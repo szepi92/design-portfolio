@@ -4,16 +4,16 @@ lightbox
 	add x, escape to hide
 
 jump
-	animate jump
-	menu titles to go red when we scroll to the thing -- REALLY HARD
+		animate jump - DONE
+		menu titles to go red when we scroll to the thing -- DONE
 
 html/css
-	fix captions
+	add actual captions
 	add CUNC?
 	fix thumbnails - max 3
 	fix thumbnail center image mess ? -- HARD
 	project title centered vertically
-	images are not centered vertically in the lightbox --- REALLY HARD
+		images are not centered vertically in the lightbox -- DONE
 	
 	
 	

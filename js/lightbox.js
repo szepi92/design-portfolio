@@ -48,6 +48,18 @@ function hideLightbox() {
 	$(".lightbox-display").css("display", "none");
 }
 
+// do something with the real dimensions of the image
+function realDimensions(elem, callback) {
+	var image = new Image(); // or document.createElement('img')
+	var width, height;
+	image.onload = function() {
+	  width = this.width;
+	  height = this.height;
+	  callback(width,height, elem);
+	};
+	image.src = $(elem).attr('src');
+}
+
 // Change the current lightbox image
 // Also, set the global variables: curProjectId and curImageIndex
 function showLightboxImage (projectId, imageIndex){
@@ -60,6 +72,37 @@ function showLightboxImage (projectId, imageIndex){
 	
 	// TODO: Should probably animate this
 	$(".lightbox img").attr("src",src);
+	
+	// Check the dimensions of the image
+	// Center vertically or horizontally
+	realDimensions(".lightbox img", function(w, h, elem){
+		var W = $(".lightbox").width();
+		var H = $(".lightbox").height();
+		$helper = $(".lightbox .helper");
+		$caption = $(".lightbox-caption");
+		$elem = $(elem);
+		
+		if (w*H <= h*W) {
+			// (w/W) <= (h/H): image will be full-height, centered horizontally
+			$elem.removeClass("center-vert");
+			$elem.addClass("center-hor");
+			$elem.css("margin-top",0);
+			
+			var displayWidth = w*(H/h);
+			var captionWidth = displayWidth - parseInt($caption.css("padding-left"));
+			$caption.css("width", captionWidth);
+		} else {
+			// (w/W) > (h/H): image will be full-width, centered vertically
+			$elem.removeClass("center-hor");
+			$elem.addClass("center-vert");
+			
+			var displayHeight = h*(W/w);
+			var captionWidth = W - parseInt($caption.css("padding-left"));
+			
+			$caption.css("width", captionWidth);
+			$elem.css("margin-top",(H-displayHeight) / 2.0);
+		}
+	});
 }
 
 

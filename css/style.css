@@ -116,6 +116,10 @@ h3 {
 	box-shadow: 1px 2px 2px #e9eaed;
 }
 
+.project-menu #menu-medley {
+	color: #e1005f;
+}
+
 .thumbnails {
 	width: 500px;
 	height: 500px;
@@ -283,10 +287,9 @@ h3 {
     right: 0;          /* Right edge at right for now, so full width */ 
     top: 0;         /* Move it down from top of window */
 	bottom: 0;
-	background-color: #111111;
-    
-	width: 1000px;      /* Give it the desired width */ 
-	height: 600px;
+	
+	max-width: 1000px;      /* Give it the desired width */ 
+	max-height: 600px;
     
 	margin: auto;      /* Center it */
 	
@@ -301,13 +304,32 @@ h3 {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	vertical-align: middle;
+	clear: none;
+}
+
+.lightbox .center-vert {
+	display: inline-block;
+	width: 100%;
+}
+
+.lightbox  .center-hor {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
 }
 
 .lightbox-caption {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 10px;
+	
 	background-color: #111111;
 	color: white;
+	display: block;
+	width: 100%;
+	
+	margin-left: auto;
+	margin-right: auto;
 }
-
