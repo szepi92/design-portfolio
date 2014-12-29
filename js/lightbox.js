@@ -24,6 +24,7 @@ var curImageIndex = 0;
 function main () {
 	$(".project .thumbnails img").click (imageClicked);
 	$(".lightbox-overlay").click (hideLightbox);
+	centerThumbs();
 }
 
 // The callback function when an image is clicked
@@ -72,6 +73,27 @@ function realDimensions(elem, callback) {
 	};
 	image.src = $(elem).attr('src');
 }
+
+// this function centers the overflowing horizontal
+// thumbnail images
+function centerThumbs() {
+	var thumbBoxWidth = $(".thumb-box").width();
+	var thumbBox1Width = $(".thumb-box1").width();
+	
+	$(".horizontal img").each(function (index, elem){
+		var width = $(elem).width();
+		var isThumbBox = $(elem).parent().hasClass("thumb-box");
+		
+		if (isThumbBox) {
+			var thumbMargin = (thumbBoxWidth - width) / 2;
+			$(elem).css("margin-left", thumbMargin);
+		} else {
+			var thumb1Margin = (thumbBox1Width - width) / 2;
+			$(elem).css("margin-left", thumb1Margin);
+		}
+	});
+}
+
 
 // Change the current lightbox image
 // Also, set the global variables: curProjectId and curImageIndex
