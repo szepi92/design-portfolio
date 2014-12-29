@@ -1,11 +1,13 @@
 lightbox
 	fade in lightbox -- HARD
 	add arrows
-	add x, escape to hide
+	add x to hide
+		escape to hide -- DONE
 
 jump
-		animate jump - DONE
+		animate jump -- DONE
 		menu titles to go red when we scroll to the thing -- DONE
+	animate lightbox - changing images
 
 html/css
 	add actual captions
@@ -14,11 +16,5 @@ html/css
 	fix thumbnail center image mess ? -- HARD
 	project title centered vertically
 		images are not centered vertically in the lightbox -- DONE
-	
-	
-	
-	
-when the person scrolls down and when it reaches a new project at the point where the new project is at the top of the page the project title in the menu bar goes red until a new project gets to the top
 
-when the person scrolls down:
 	

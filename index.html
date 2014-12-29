@@ -3,10 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/underscore.js"></script>
 	<script src="js/lightbox.js"></script>
 	<script src="js/jump.js"></script>
+	<script src="js/svg-color.js"></script>
+	
 	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
 </head>
@@ -15,12 +18,16 @@
 	<div id="banner"> </div>
 	<div class="container">
 		<div class="lightbox-overlay lightbox-display"></div>
-		<div class="lightbox lightbox-display">
-			<!--<figure>-->
-				<img src="images/ya/2.jpg">
-				<div class="lightbox-caption">Here is a cool image!</div>
-			<!--</figure>-->
+			<div class="lightbox lightbox-display">
+				<!--<figure>-->
+					<img src="images/ya/2.jpg">
+					<div class="lightbox-caption">Here is a cool image!</div>
+				<!--</figure>-->
 		</div>
+		
+		<img class="svg lightbox-icons lightbox-display clickable" id="x" src="assets/x.svg">
+		<img class="svg lightbox-icons lightbox-display arrows clickable" id="left-arrow" src="assets/left-arrow.svg">
+		<img class="svg lightbox-icons lightbox-display arrows clickable" id="right-arrow" src="assets/right-arrow.svg">
 
 		<div id="page-title">
 			<img src="assets/title2.svg">

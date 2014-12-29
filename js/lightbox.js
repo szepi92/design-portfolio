@@ -13,6 +13,8 @@ $(document).keyup(function(e){
 		previousImage();
 	} else if (e.keyCode == 39) {
 		nextImage();
+	} else if (e.keyCode == 27) {
+		hideLightbox();
 	}
 });
 
@@ -22,8 +24,6 @@ var curImageIndex = 0;
 function main () {
 	$(".project .thumbnails img").click (imageClicked);
 	$(".lightbox-overlay").click (hideLightbox);
-	$("#right-arrow").click (nextImage);
-	$("#left-arrow").click (previousImage);
 }
 
 // The callback function when an image is clicked
@@ -42,10 +42,23 @@ function imageClicked (eventObject) {
 function showLightbox (projectId, imageIndex) {
 	showLightboxImage(projectId, imageIndex);
 	$(".lightbox-display").css("display", "block");
+	centerArrows();
+	$("#right-arrow").unbind("click").click (nextImage);
+	$("#left-arrow").unbind("click").click (previousImage);
+	$("#x").unbind("click").click (hideLightbox);
 }
 
 function hideLightbox() {
 	$(".lightbox-display").css("display", "none");
+}
+
+// this function gets the window height and the height
+// of the icons so that they can be centered vertically
+function centerArrows() {
+	var windowHeight = $(window).height();
+	var arrowHeight = $(".arrows").height();
+	var top = (windowHeight - arrowHeight) / 2;
+	$(".arrows").css("margin-top", top);
 }
 
 // do something with the real dimensions of the image
