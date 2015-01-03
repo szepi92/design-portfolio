@@ -1,9 +1,10 @@
 body {
 	background-image: url("../assets/background2.png");
 	font-family: "Lato";
-	font-weight: 100;
+	font-weight: 300;
 	color: #333333;
 	margin: 0px;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 @font-face {
@@ -292,7 +293,7 @@ h3 {
     right: 0;          /* Right edge at right for now, so full width */ 
     top: 0;         /* Move it down from top of window */
 	bottom: 0;
-	width: 1000px;      /* Give it the desired size */ 
+	width: 1200px;      /* Give it the desired size */ 
 	height: 600px;
 	margin: auto;      /* Center it */	
     z-index: 1000000;    /* Whatever needed to force to front (1 might do) */

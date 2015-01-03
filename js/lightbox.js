@@ -25,7 +25,14 @@ var offScreen = ".lightbox .secondary-img";
 
 function main () {
 	$(".project .thumbnails img").click (imageClicked);
-	$(".lightbox-overlay").click (hideLightbox);
+	
+	$(".lightbox-overlay, .lightbox").click (hideLightbox)
+	.children().click(function(e) {
+		if ($(e.currentTarget).css("opacity") > 0.5) {
+			return false;
+		}
+	});
+	
 	centerThumbs();
 }
 
@@ -54,7 +61,7 @@ function showLightbox (projectId, imageIndex) {
 	$("#x").unbind("click").click (hideLightbox);
 }
 
-function hideLightbox() {
+function hideLightbox(event) {
 	$(".lightbox-display").css("display", "none");
 }
 
@@ -113,9 +120,10 @@ var showLightboxImage = _.throttle(function (projectId, imageIndex, firstShow){
 	curProjectId = projectId;
 	curImageIndex = imageIndex;
 
-	// Extract the "src" from the specified image
+	// Extract the "src" and "alt"/caption from the specified image
 	var cssSelector = "#" + projectId + " .thumbnails img";
 	var src = $(cssSelector).eq(imageIndex).attr("src");
+	var cap = $(cssSelector).eq(imageIndex).attr("alt");
 	
 	// Decide whether to animate things
 	var animateTime = 700;
@@ -125,11 +133,12 @@ var showLightboxImage = _.throttle(function (projectId, imageIndex, firstShow){
 	
 	// Modify the offscreen image to come onscreen
 	$(offScreen).attr("src",src);
-	$(offScreen).animate({opacity: 1.0}, animateTime);
-	$(onScreen).animate({opacity: 0.0}, animateTime);
+	$(offScreen).animate({opacity: 1.0, "z-index": 1000000000}, animateTime);
+	$(onScreen).animate({opacity: 0.0, "z-index": -1}, animateTime);
 	
 	// Check the dimensions of the image
 	// Center vertically or horizontally
+	// Also animates the caption
 	realDimensions(offScreen, function(w, h, elem){
 		var W = $(".lightbox").width();
 		var H = $(".lightbox").height();
@@ -161,11 +170,13 @@ var showLightboxImage = _.throttle(function (projectId, imageIndex, firstShow){
 		// Set the height/width/position of the caption
 		captionProperties = {
 			width: displayWidth - parseInt($caption.css("padding-left")),
-			left: imageLeft,	// to match the image above
-			top : imageTop + displayHeight,
+			left : imageLeft,	// to match the image above
+			top  : imageTop + displayHeight
 		};
 		
-		$caption.animate(captionProperties,animateTime);
+		// Set the text and animate the caption of the lightbox image
+		$(".lightbox-caption").text(cap);
+		$caption.animate(captionProperties, animateTime);
 	});
 	
 	// Swap on and off-screen
