@@ -42,7 +42,10 @@ function imageClicked (eventObject) {
 
 function showLightbox (projectId, imageIndex) {
 	showLightboxImage(projectId, imageIndex);
-	$(".lightbox-display").css("display", "block");
+	
+	//put .animate instead of .css("display", "block")
+	$(".lightbox-display").animate({opacity: "show"}); 
+	
 	centerArrows();
 	$("#right-arrow").unbind("click").click (nextImage);
 	$("#left-arrow").unbind("click").click (previousImage);
@@ -78,19 +81,26 @@ function realDimensions(elem, callback) {
 // thumbnail images
 function centerThumbs() {
 	var thumbBoxWidth = $(".thumb-box").width();
-	var thumbBox1Width = $(".thumb-box1").width();
+	var thumbBox2Width = $(".thumb-box2").width();
+	
+	var scaledHeight = $(".thumb-box").height();
+	var scaledHeight2 = $(".thumb-box2").height();
 	
 	$(".horizontal img").each(function (index, elem){
-		var width = $(elem).width();
-		var isThumbBox = $(elem).parent().hasClass("thumb-box");
-		
-		if (isThumbBox) {
-			var thumbMargin = (thumbBoxWidth - width) / 2;
-			$(elem).css("margin-left", thumbMargin);
-		} else {
-			var thumb1Margin = (thumbBox1Width - width) / 2;
-			$(elem).css("margin-left", thumb1Margin);
-		}
+		realDimensions(elem, function (width, height, elem) {
+			var isThumbBox = $(elem).parent().hasClass("thumb-box");
+			
+			var scaledWidth = (width / height) * scaledHeight;
+			var scaledWidth2 = (width / height) * scaledHeight2;
+			
+			if (isThumbBox) {
+				var thumbMargin = (thumbBox2Width - scaledWidth) / 2;
+				$(elem).css("margin-left", thumbMargin);
+			} else {
+				var thumb2Margin = (thumbBox2Width - scaledWidth2) / 2;
+				$(elem).css("margin-left", thumb2Margin);
+			}
+		});
 	});
 }
 

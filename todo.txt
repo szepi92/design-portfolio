@@ -1,20 +1,22 @@
 lightbox
-	fade in lightbox -- HARD
-	add arrows
-	add x to hide
+		fade in lightbox -- DONE
+	animate lightbox - changing images
+		add arrows -- DONE
+		add x to hide -- DONE
 		escape to hide -- DONE
 
 jump
 		animate jump -- DONE
 		menu titles to go red when we scroll to the thing -- DONE
-	animate lightbox - changing images
+	somethign is wrong with the calculations! made the page smaller and it still thinks of the old number? maybe it is cached - not in firefox
+	and tshirt design can't light up :/
 
 html/css
 	add actual captions
 	add CUNC?
-	fix thumbnails - max 3
-	fix thumbnail center image mess ? -- HARD
-	project title centered vertically
+		fix thumbnails - max 3 -- DONE
+		fix thumbnail center image mess ? -- DONE
+		project title centered vertically -- DONE
 		images are not centered vertically in the lightbox -- DONE
+	font looks VERY skinny in chrome for some reason
 
-	

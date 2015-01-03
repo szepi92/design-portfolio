@@ -67,18 +67,25 @@ h3 {
 }
 
 .project-details {
-	width: 885px;
-	height: 100%;
 	display: inline-block;
 	clear: none;
 	vertical-align: top;
-	margin-right: 20px;
+	
+	width: 885px;
+	height: 100%;
+	
 	background-color: white;
+	
 	border-radius: 5px;
 	box-shadow: 1px 2px 2px #e9eaed;
+	
 	padding-left: 20px;
 	padding-right: 20px;
+	padding-bottom: 20px;
+	
+	margin-right: 20px;
 	margin-top: 65px;
+	margin-bottom: 90px;
 }
 
 .project {
@@ -88,8 +95,8 @@ h3 {
 .project-details h2 {
 	font-weight: 100;
 	font-size: 30px;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	display: inline-block
 }
 
@@ -97,8 +104,8 @@ h3 {
 	display: inline-block;
 	font-size: 20px;
 	font-weight: 100;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .project-menu {
@@ -122,7 +129,7 @@ h3 {
 
 .thumbnails {
 	width: 500px;
-	height: 500px;
+	height: 350px;
 	vertical-align: top;
 	display: inline-block;
 	margin-right: 27px;
@@ -147,6 +154,15 @@ h3 {
 	position: relative;
 }
 
+.thumb-box2 {
+	width: 500px;
+	height: 350px;
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid #eaeaea;
+	position: relative;
+}
+
 .horizontal img{
 	position: absolute;
 	height: 100%;
@@ -164,6 +180,27 @@ h3 {
 .project-dscrp {
 	width: 350px;
 	display: inline-block;
+}
+
+.names {
+	font-weight: 350;
+	color: #000000;
+}
+
+.project-dscrp p {
+	margin-top: 0px;
+}
+
+.link{
+	display: inline-block;
+	margin-right: 50px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	color: #96898F;
+}
+
+.link:hover {
+	color: #E1005F;
 }
 
 #icons {
@@ -221,7 +258,7 @@ h3 {
 	position: fixed;
 }
 
-.clickable, .thumb-box {
+.clickable, .thumb-box2 {
 	cursor: pointer;
 }
 
