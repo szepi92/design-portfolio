@@ -292,37 +292,16 @@ h3 {
     right: 0;          /* Right edge at right for now, so full width */ 
     top: 0;         /* Move it down from top of window */
 	bottom: 0;
-	
-	max-width: 1000px;      /* Give it the desired width */ 
-	max-height: 600px;
-    
-	margin: auto;      /* Center it */
-	
+	width: 1000px;      /* Give it the desired size */ 
+	height: 600px;
+	margin: auto;      /* Center it */	
     z-index: 1000000;    /* Whatever needed to force to front (1 might do) */
-	
 	display: none;
 }
 
 .lightbox img {
-	max-width: 100%;
-	max-height: 100%;
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	vertical-align: middle;
-	clear: none;
-}
-
-.lightbox .center-vert {
-	display: inline-block;
-	width: 100%;
-}
-
-.lightbox  .center-hor {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	height: 100%;
+	position: absolute;
 }
 
 .lightbox-caption {
@@ -335,8 +314,7 @@ h3 {
 	display: block;
 	width: 100%;
 	
-	margin-left: auto;
-	margin-right: auto;
+	position: absolute;
 }
 
 .hidden {

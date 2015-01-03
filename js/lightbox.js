@@ -20,6 +20,8 @@ $(document).keyup(function(e){
 
 var curProjectId = "";
 var curImageIndex = 0;
+var onScreen = ".lightbox .main-img";
+var offScreen = ".lightbox .secondary-img";
 
 function main () {
 	$(".project .thumbnails img").click (imageClicked);
@@ -41,7 +43,7 @@ function imageClicked (eventObject) {
 }
 
 function showLightbox (projectId, imageIndex) {
-	showLightboxImage(projectId, imageIndex);
+	showLightboxImage(projectId, imageIndex,true);
 	
 	//put .animate instead of .css("display", "block")
 	$(".lightbox-display").animate({opacity: "show"}); 
@@ -107,57 +109,77 @@ function centerThumbs() {
 
 // Change the current lightbox image
 // Also, set the global variables: curProjectId and curImageIndex
-function showLightboxImage (projectId, imageIndex){
+var showLightboxImage = _.throttle(function (projectId, imageIndex, firstShow){
 	curProjectId = projectId;
 	curImageIndex = imageIndex;
-	
+
 	// Extract the "src" from the specified image
 	var cssSelector = "#" + projectId + " .thumbnails img";
 	var src = $(cssSelector).eq(imageIndex).attr("src");
 	
-	// TODO: Should probably animate this
-	$(".lightbox img").attr("src",src);
+	// Decide whether to animate things
+	var animateTime = 700;
+	if (firstShow) {
+		animateTime = 0;
+	}
+	
+	// Modify the offscreen image to come onscreen
+	$(offScreen).attr("src",src);
+	$(offScreen).animate({opacity: 1.0}, animateTime);
+	$(onScreen).animate({opacity: 0.0}, animateTime);
 	
 	// Check the dimensions of the image
 	// Center vertically or horizontally
-	realDimensions(".lightbox img", function(w, h, elem){
+	realDimensions(offScreen, function(w, h, elem){
 		var W = $(".lightbox").width();
 		var H = $(".lightbox").height();
-		$helper = $(".lightbox .helper");
+		var displayHeight, displayWidth;
 		$caption = $(".lightbox-caption");
 		$elem = $(elem);
 		
+		// Decide on the final dimensions of the image (depending on ratios)
 		if (w*H <= h*W) {
-			// (w/W) <= (h/H): image will be full-height, centered horizontally
-			$elem.removeClass("center-vert");
-			$elem.addClass("center-hor");
-			$elem.css("margin-top",0);
-			
-			var displayWidth = w*(H/h);
-			var captionWidth = displayWidth - parseInt($caption.css("padding-left"));
-			$caption.css("width", captionWidth);
+			// Full height image, centered vertically
+			displayHeight = H;
+			displayWidth = w*(H/h);
 		} else {
-			// (w/W) > (h/H): image will be full-width, centered vertically
-			$elem.removeClass("center-hor");
-			$elem.addClass("center-vert");
-			
-			var displayHeight = h*(W/w);
-			var captionWidth = W - parseInt($caption.css("padding-left"));
-			
-			$caption.css("width", captionWidth);
-			$elem.css("margin-top",(H-displayHeight) / 2.0);
+			// Full width image, centered horizontally
+			displayWidth = W;
+			displayHeight = h*(W/w);
 		}
+		
+		// Set the dimensions of the image
+		// Also center the image vertically and horizontally
+		var imageLeft = (W - displayWidth) / 2.0;
+		var imageTop = (H - displayHeight) / 2.0;
+		$elem.height(displayHeight).width(displayWidth);
+		$elem.css({
+			left: imageLeft,
+			top : imageTop
+		});
+		
+		// Set the height/width/position of the caption
+		captionProperties = {
+			width: displayWidth - parseInt($caption.css("padding-left")),
+			left: imageLeft,	// to match the image above
+			top : imageTop + displayHeight,
+		};
+		
+		$caption.animate(captionProperties,animateTime);
 	});
-}
-
-
+	
+	// Swap on and off-screen
+	var tmp = onScreen;
+	onScreen = offScreen;
+	offScreen = tmp;
+}, 700);
 
 function nextImage () {
 	var setLength = $("#" + curProjectId + " img").size ();
-	showLightboxImage (curProjectId, (curImageIndex + 1) %setLength);
+	showLightboxImage (curProjectId, (curImageIndex + 1) %setLength, false);
 }
 
 function previousImage () {
 	var setLength = $("#" + curProjectId + " img").size ();
-	showLightboxImage (curProjectId, (curImageIndex - 1) %setLength);
+	showLightboxImage (curProjectId, (curImageIndex - 1) %setLength, false);
 }
