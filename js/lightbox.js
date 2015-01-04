@@ -126,7 +126,7 @@ var showLightboxImage = _.throttle(function (projectId, imageIndex, firstShow){
 	var cap = $(cssSelector).eq(imageIndex).attr("alt");
 	
 	// Decide whether to animate things
-	var animateTime = 700;
+	var animateTime = 400;
 	if (firstShow) {
 		animateTime = 0;
 	}
