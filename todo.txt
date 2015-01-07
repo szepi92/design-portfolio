@@ -21,3 +21,13 @@ html/css
 		images are not centered vertically in the lightbox -- DONE
 		font looks VERY skinny in chrome for some reason - not resolved but don't care
 
+
+order:
+	medley
+	cunc
+	photography
+	your assistant
+	shirts
+	st-emeric
+	twine
+	colt
