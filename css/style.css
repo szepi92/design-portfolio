@@ -295,7 +295,7 @@ h3 {
     top: 0;         /* Move it down from top of window */
 	bottom: 0;
 	width: 1200px;      /* Give it the desired size */ 
-	height: 600px;
+	height: 550px;
 	margin: auto;      /* Center it */	
     z-index: 1000000;    /* Whatever needed to force to front (1 might do) */
 	display: none;
